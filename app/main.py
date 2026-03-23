@@ -4,6 +4,7 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from app.router.product import router as product_router
 from app.router.category import router as category_router
+from app.router.user import router as user_router
 from fastapi_pagination import add_pagination
 
 
@@ -11,7 +12,7 @@ app = FastAPI(title="UZUMDB", docs_url="/")
 
 app.include_router(category_router)
 app.include_router(product_router)
-
+app.include_router(user_router)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
